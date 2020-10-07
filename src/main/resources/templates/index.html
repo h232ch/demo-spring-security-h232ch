@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+
+<h1 th:text="${message}">Hello</h1>
+<!--화면의 모델객체를 표현할 때는 ${}를 사용, message가 존재하지 않는경우 Hello를 보여줌-->
+
+<!--thymeleaf-extras-springsecurity5에서 제공하는 기능(authorization, authentication-->
+<div th:if="${#authorization.expr('isAuthenticated()')}">
+    <h2 th:text="${#authentication.name}">Name</h2>
+    <a href="/logout" th:href="@{/logout}">Logout</a>
+</div>
+<div th:unless="${#authorization.expr('isAuthenticated()')}">
+    <a href="/login" th:href="@{/login}">Login</a>
+</div>
+<!-- 파트 42 -->
+<!-- isAuthenticated되어 있다면 authentication.name을 가져와서 화면에 보여주고
+isAuthenticated가 아니면(unless) login 태그를 화면에 뿌려줌-->
+
+</body>
+</html>

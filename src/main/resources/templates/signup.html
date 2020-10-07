@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp</title>
+</head>
+<body>
+
+<form action="/signup" th:action="@{/signup}" th:object="${account}" method="post">
+    <p>Username: <input type="text" th:field="*{username}"/></p>
+    <p>Password: <input type="password" th:field="*{password}"/></p>
+    <p><input type="submit" value="SignUp"></p>
+<!--   타임리프 2.1버전 이상에서는  Form Submit 페이지에 CSRF 값이 자동으로 들어가 있음 -->
+</form>
+
+</body>
+</html>

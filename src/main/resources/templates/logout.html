@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+</head>
+<body>
+
+<h1>Logout</h1>
+
+<div th:if="${param.error}">
+    Invalid username or password.
+</div>
+
+<!-- th:action 찾아보기 -->
+<form action="/logout" method="post" th:action="@{/logout}">
+    <p><input type="submit" value="Logout"></p>
+<!--    CSRF 필터를 통과하여 Logout이 수행됨 -->
+</form>
+
+</body>
+</html>
